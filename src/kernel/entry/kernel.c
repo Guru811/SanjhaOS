@@ -1,3 +1,4 @@
+#include <bootscreen.h>
 #include <acpi.h>
 #include <bootloader.h>
 #include <console.h>
@@ -33,7 +34,6 @@
 #include <util.h>
 #include <vga.h>
 #include <vmm.h>
-
 // Kernel entry file
 // Copyright (C) 2024 Panagiotis
 
@@ -50,7 +50,7 @@ void _start(void) {
   // Framebuffer doesn't depend on paging, limine prepares it anyways
   initiateVGA();
   initiateConsole();
-  clearScreen();
+  showBootScreen();
 
   // None of the two depend on paging
   initiatePMM();
@@ -92,10 +92,17 @@ void _start(void) {
   if (!systemDiskInit)
     printf("[warning] System disk has not been detected!\n");
 
-  printf("=========================================\n");
-  printf("==     Cave-Like Operating System      ==\n");
-  printf("==      Copyright MalwarePad 2025      ==\n");
-  printf("=========================================\n\n");
+// Center the welcome message
+int screen_cols = fb.width / 8;
+int msg_len = 27; // length of "Sanjha Operating System v0.1"
+int pad = (screen_cols - msg_len) / 2;
+
+for (int i = 0; i < pad; i++) printf(" ");
+printf("================================\n");
+for (int i = 0; i < pad; i++) printf(" ");
+printf("   Sanjha Operating System v0.1\n");
+for (int i = 0; i < pad; i++) printf(" ");
+printf("================================\n\n");
 
   while (1)
     run("/bin/bash", true, 0, 0);

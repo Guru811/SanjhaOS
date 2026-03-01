@@ -46,7 +46,7 @@ void task3() {
 }
 
 void fetch() {
-  printf("\n      ^         name: cavOS");
+  printf("\n      ^         name: SanjhaOS");
   printf("\n     / \\        memory: %ldMB",
          DivRoundUp(DivRoundUp(bootloader.mmTotal, 1024), 1024));
   printf("\n    /   \\       uptime: %lds", DivRoundUp(timerTicks, 1000));
@@ -54,7 +54,42 @@ void fetch() {
   printf("\n   \\ \\ / / / \\");
   printf("\n           \\_/  \n");
 }
+void sysinfo() {
+  printf("\n");
+  changeTextColor(255, 140, 0);
+  printf("           SANJHA OS — SYSINFO          \n");
+  changeTextColor(255, 255, 255);
 
+  // OS Info
+  changeTextColor(0, 220, 255);
+  printf("  [OS]\n");
+  changeTextColor(255, 255, 255);
+  printf("    Name    : Sanjha OS v0.1\n");
+  printf("    Author  : Gurshant Singh\n");
+
+  // Memory
+  changeTextColor(0, 220, 255);
+  printf("  [Memory]\n");
+  changeTextColor(255, 255, 255);
+  printf("    Total   : %ld MB\n",
+         DivRoundUp(DivRoundUp(bootloader.mmTotal, 1024), 1024));
+
+  // Display
+  changeTextColor(0, 220, 255);
+  printf("  [Display]\n");
+  changeTextColor(255, 255, 255);
+  printf("    Resolution : %ldx%ld\n", fb.width, fb.height);
+
+  // Uptime
+  changeTextColor(0, 220, 255);
+  printf("  [System]\n");
+  changeTextColor(255, 255, 255);
+  printf("    Uptime  : %ld seconds\n", DivRoundUp(timerTicks, 1000));
+
+  changeTextColor(255, 140, 0);
+  changeTextColor(255, 255, 255);
+  printf("\n");
+}
 void help() {
   printf("\n========================== GENERIC ==========================");
   printf("\n= cmd            : Launch a new recursive Shell             =");
@@ -90,8 +125,7 @@ void readDisk() {
 
   clearScreen();
   printf("=========================================\n");
-  printf("====        cavOS readdisk 1.0       ====\n");
-  printf("====    Copyright MalwarePad 2024    ====\n");
+  printf("====        Sanjha readdisk 1.0       ===\n");
   printf("=========================================\n");
 
   printf("\n1MB Limine sector: LBA=0 Offset=0, FAT32 sector: LBA=2048 "

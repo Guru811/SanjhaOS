@@ -41,6 +41,8 @@ disk_prepare: verifytools limine uacpi musl ports
 	@$(MAKE) -C src/software/test -j1
 	@$(MAKE) -C src/software/badtest -j1
 	@$(MAKE) -C src/software/drawimg -j1
+	@$(MAKE) -C src/software/sysinfo -j1
+	@$(MAKE) -C src/software/calculator -j1
 disk: disk_prepare clean
 	@$(MAKE) -C src/kernel disk
 disk_dirty: disk_prepare
