@@ -1,5 +1,5 @@
-# Cave-Like Operating System
-cavOS is an x86_64 POSIX-compliant operating system in C. An active effort of making a full OS, with a simple and readable codebase.
+# Sanjha Operating System
+SanjhaOS is an x86_64 POSIX-compliant operating system in C. An active effort of making a full OS, with a simple and readable codebase.
 
 [![GitHub top language](https://img.shields.io/github/languages/top/malwarepad/cavOS?logo=c&label=)](https://github.com/malwarepad/cavOS/blob/master/src/kernel/Makefile)
 [![GitHub license](https://img.shields.io/github/license/malwarepad/cavOS)](https://github.com/malwarepad/cavOS/blob/master/LICENSE)
