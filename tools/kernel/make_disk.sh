@@ -32,7 +32,7 @@ if [ ! -f "${LIMINE_EXEC}" ]; then
 fi
 
 SIZE_IN_BYTES=$(du -sb "$1" | cut -f1)
-SIZE_IN_BLOCKS=$((($SIZE_IN_BYTES / 512) * 2 + 500000))
+SIZE_IN_BLOCKS=$((($SIZE_IN_BYTES / 512) * 2 + 2000000))
 
 if [ -z "$4" ]; then
 	dd if=/dev/zero of="${3}" bs=512 count=$SIZE_IN_BLOCKS
